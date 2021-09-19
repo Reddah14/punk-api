@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
+import "./LeftDrawer.scss";
+
 import { Sidebar } from "primereact/sidebar";
 
 import logo from "../../assets/images/logo-small.jpg";
 import Searchbar from "../Searchbar/Searchbar";
 import FilterList from "../FilterList/FilterList";
 
-import "./LeftDrawer.scss";
 
 const LeftDrawer = () => {
   const [inputValue, setInputValue] = useState("");

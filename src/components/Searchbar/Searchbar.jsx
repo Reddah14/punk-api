@@ -1,9 +1,10 @@
 import React from "react";
+
 import "./Searchbar.scss";
 
+import { InputText } from "primereact/inputtext";
 import "primereact/resources/primereact.min.css";
 
-import { InputText } from "primereact/inputtext";
 
 const Searchbar = (props) => {
   const {label, handleInput, beerToSearch} = props;;
