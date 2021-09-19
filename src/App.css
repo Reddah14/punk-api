@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.topbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: var(--surface-100);
+}
+
+.topbar-logo {
+  height: 50px;
+  width: 50px;
+}
+
+.topbar-title {
+  color: #029BC8;
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
+  font-weight: 600;
+}
