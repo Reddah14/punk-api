@@ -56,6 +56,8 @@ const App = () => {
         <div className="text-left mt-5 ml-4">
           <div className="p-field-checkbox">
             <Checkbox
+              tooltip="ABV greater than 6.0%"
+              tooltipOptions={{ position: "top" }}
               inputId="highABV"
               value="High ABV"
               onChange={handleCbHighABV}
@@ -70,6 +72,8 @@ const App = () => {
         <div className="text-left mt-3 ml-4">
           <div className="p-field-checkbox">
             <Checkbox
+              tooltip="Brewed before 2010"
+              tooltipOptions={{ position: "top" }}            
               inputId="classicRange"
               value="Classic Range"
               onChange={handleCbClassicRange}
@@ -84,6 +88,8 @@ const App = () => {
         <div className="text-left mt-3 ml-4">
           <div className="p-field-checkbox">
             <Checkbox
+              tooltip="pH lower than 4"
+              tooltipOptions={{ position: "top" }}            
               inputId="acidicRange"
               value="Acidic Range"
               onChange={handleCbAcidicRange}
