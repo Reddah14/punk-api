@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import { InputText } from "primereact/inputtext";
 import { Sidebar } from "primereact/sidebar";
 import { Checkbox } from "primereact/checkbox";
 
 import logo from "../../assets/images/logo-small.jpg";
+import Searchbar from "../Searchbar/Searchbar";
 
 import "./LeftDrawer.scss";
 
@@ -13,7 +13,11 @@ const LeftDrawer = () => {
   const [checkedHighABV, setCheckedHighABV] = useState(false);
   const [checkedClassicRange, setCheckedClassicRange] = useState(false);
   const [checkedAcidic, setCheckedAcidic] = useState(false);
-
+  
+  const handleInput = (event) => {
+    setInputValue(event.target.value);
+    console.log(event.target.value);
+  }
   const handleCbHighABV = () => {
     setCheckedHighABV(!checkedHighABV);
     console.log("cb high abv ticked");
@@ -37,17 +41,7 @@ const LeftDrawer = () => {
           <span className="sidebar__label--title">Brewdog Punk-API</span>
         </div>
 
-        <div className="p-fluid mt-6 m-3">
-          <span className=" p-input-icon-left p-float-label">
-            <i className="pi pi-search" />
-            <InputText
-              id="searchBeer"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <label htmlFor="searchBeer">Search Your Beer</label>
-          </span>
-        </div>
+        <Searchbar label="Search Your Beer" beerToSearch={inputValue} handleInput={handleInput} />
 
         <div className="text-left mt-5 ml-4">
           <div className="p-field-checkbox">
