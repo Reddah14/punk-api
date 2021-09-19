@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.topbar {
+.sidebar__label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,12 +10,12 @@
   background-color: var(--surface-100);
 }
 
-.topbar-logo {
+.sidebar__label--logo {
   height: 50px;
   width: 50px;
 }
 
-.topbar-title {
+.sidebar__label--title {
   color: #029BC8;
   font-family: 'Dancing Script', cursive;
   font-size: 25px;
