@@ -2,6 +2,7 @@ import React from "react";
 import "./App.scss";
 
 import LeftDrawer from "./components/LeftDrawer/LeftDrawer";
+import Home from "./Home/Home";
 
 
 import "primereact/resources/themes/md-light-indigo/theme.css";
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <LeftDrawer />
+      <Home />
     </div>
   );
 };
