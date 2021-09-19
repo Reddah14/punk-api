@@ -3,6 +3,7 @@ import './App.css';
 
 //import { InputText } from 'primereact/inputtext';
 import logo from './assets/images/logo-small.jpg';
+
 import 'primereact/resources/themes/md-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -10,14 +11,13 @@ import 'primeflex/primeflex.css';
 
 const App = () => {
 
-
   return (
-    <div className="App shadow-4 p-3">  
+    <div className="App">  
 
-      <div className="topbar">
-        <img src={logo} alt="logo" className="topbar-logo" />
+      <div className="topbar shadow-4 p-3">
+        <img src={logo} alt="logo" className="topbar-logo mr-3" />
           <span className="topbar-title">Brewdog Punk-API</span>
-        <img src={logo} alt="logo" className="topbar-logo" />
+        <img src={logo} alt="logo" className="topbar-logo ml-3" />
       </div>
 
 {/*       <div>
