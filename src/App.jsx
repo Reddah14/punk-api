@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 
 import { InputText } from "primereact/inputtext";
 import { Sidebar } from "primereact/sidebar";
@@ -73,7 +73,7 @@ const App = () => {
           <div className="p-field-checkbox">
             <Checkbox
               tooltip="Brewed before 2010"
-              tooltipOptions={{ position: "top" }}            
+              tooltipOptions={{ position: "top" }}
               inputId="classicRange"
               value="Classic Range"
               onChange={handleCbClassicRange}
@@ -89,7 +89,7 @@ const App = () => {
           <div className="p-field-checkbox">
             <Checkbox
               tooltip="pH lower than 4"
-              tooltipOptions={{ position: "top" }}            
+              tooltipOptions={{ position: "top" }}
               inputId="acidicRange"
               value="Acidic Range"
               onChange={handleCbAcidicRange}
