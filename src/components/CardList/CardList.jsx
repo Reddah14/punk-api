@@ -11,7 +11,7 @@ const CardList = (props) => {
   });
 
   return (
-    <div className="main-layout flex flex-wrap mt-2 mr-2 mb-2" >
+    <div className="main-layout flex flex-wrap pt-2 pb-2 mr-2" >
       {beers}
     </div>
   );
