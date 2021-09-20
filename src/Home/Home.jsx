@@ -18,6 +18,8 @@ const Home = () => {
   const [beersArr, setBeersArr] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  //const [beersFilteredByHighABV, setBeersFilteredByHighABV] = useState([]);
+
   useEffect(() => {
     fetch(
       'https://api.punkapi.com/v2/beers'
@@ -38,15 +40,23 @@ const Home = () => {
       console.log('highABV is checked');
       setIsHighABVchecked(event.target.checked);
 
-      const filteredByHighABV = beersArr.filter( beer => beer.abv > 6
-      );
+      const filteredByHighABV = beersArr.filter( beer => beer.abv > 6 );
       console.log(filteredByHighABV);
       //setBeersFilteredByHighABV(filteredByHighABV);
       setBeersArr(filteredByHighABV);
 
-      return setIsHighABVchecked(event.target.checked);    
     } else if (event.value === "Classic Range") {
       console.log('classic range is checked');
+      setIsClassicRangeChecked(event.target.checked);
+
+      const filteredByClassicRange = beersArr.filter( beer => {
+        const yearFirstBrew = beer.first_brewed;
+        const twoDigitYearValue = yearFirstBrew.slice(-2);
+        
+        return parseInt(twoDigitYearValue) < 10;
+      });
+      console.log(filteredByClassicRange);
+      setBeersArr(filteredByClassicRange);
 
       return setIsClassicRangeChecked(event.target.checked);       
     } else if (event.value === "Acidic Range") {
