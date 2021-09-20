@@ -1,15 +1,18 @@
 import React from 'react'
 
 import './Card.scss'
-import pic from '../../assets/images/bottle.png'
 
-const Card = () => {
+const Card = (props) => {
+  const { beerImg, beerName, beerDescription } = props;
+
+  const formattedDescription = beerDescription.substring(0, 125);
+
   return (
     <div>
       <div className="p-card shadow-5">
-        <img src={pic} alt="bottle" className="beer-image" />
-        <h5>Beer Name</h5>
-        <p>Beer Description... Lorem ipsum dolor sit amet.Beer Description... Lorem ipsum dolor sit amet.</p>
+        <img src={beerImg} alt="beer" className="beer-image" />
+        <h5>{beerName}</h5>
+        <p>{formattedDescription}</p>
       </div>
     </div>
   )
