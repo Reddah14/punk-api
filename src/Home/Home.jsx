@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./Home.scss";
 
 import { Sidebar } from "primereact/sidebar";
-
-//import beerData from "../data/beers-data";
-//https://api.punkapi.com/v2/
 
 import logo from "../assets/images/logo-small.jpg";
 import Searchbar from "../components/Searchbar/Searchbar";
@@ -13,13 +10,21 @@ import FilterList from "../components/FilterList/FilterList";
 import CardList from "../components/CardList/CardList";
 
 const Home = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [beersArr, setBeersArr] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  fetch('https://api.punkapi.com/v2/beers')
-    .then((response) => response.json())
-    .then((beerData) => setBeersArr(beerData))
-    .catch((err) => console.log(err));
+  useEffect(() => {
+    fetch(
+      'https://api.punkapi.com/v2/beers'
+    )
+      .then((response) => { 
+        return response.json();
+      })
+      .then((beerData) => {
+        setBeersArr(beerData)
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   console.log(beersArr);
     
