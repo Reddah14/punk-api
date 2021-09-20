@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 
 import "./LeftDrawer.scss";
 
@@ -10,10 +10,11 @@ import FilterList from "../FilterList/FilterList";
 
 
 const LeftDrawer = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleInput = (event) => {
-    setInputValue(event.target.value);
+    const cleanInput = event.target.value.toLowerCase();
+    setSearchTerm(cleanInput);
     console.log(event.target.value);
   };
 
@@ -26,7 +27,7 @@ const LeftDrawer = () => {
         </div>
         <Searchbar
           label="Search Your Beer"
-          beerToSearch={inputValue}
+          beerToSearch={searchTerm}
           handleInput={handleInput}
         />
         <FilterList />
@@ -36,3 +37,4 @@ const LeftDrawer = () => {
 };
 
 export default LeftDrawer;
+ */
