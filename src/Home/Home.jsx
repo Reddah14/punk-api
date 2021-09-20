@@ -26,10 +26,6 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(beersArr);
-    
-
-
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
