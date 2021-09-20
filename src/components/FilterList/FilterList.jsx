@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React/* , { useState }  */from "react";
 
 import "./FilterList.scss";
 
@@ -6,27 +6,12 @@ import FilterItem from "../FilterItem/FilterItem";
 
 const FilterList = (props) => {
 
-  const { handleFilters } = props;
-
-  const [checkedHighABV, setCheckedHighABV] = useState(false);
-  const [checkedClassicRange, setCheckedClassicRange] = useState(false);
-  const [checkedAcidic, setCheckedAcidic] = useState(false);
-
-  const handleCbHighABV = (event) => {
-    console.log(event);
-    setCheckedHighABV(!checkedHighABV);
-    console.log("cb high abv ticked");
-  };
-
-  const handleCbClassicRange = () => {
-    setCheckedClassicRange(!checkedClassicRange);
-    console.log("cb classic range ticked");
-  };
-
-  const handleCbAcidicRange = () => {
-    setCheckedAcidic(!checkedAcidic);
-    console.log("cb acidic range ticked");
-  };
+  const { 
+    isHighABVchecked,
+    isClassicRangeChecked,
+    isAcidicChecked,
+    handleFilters
+  } = props;
 
   return (
     <div>
@@ -35,7 +20,7 @@ const FilterList = (props) => {
         inputId={"highABV"}
         value={"High ABV"}
         onChange={handleFilters}
-        checked={checkedHighABV}
+        checked={isHighABVchecked}
         label={"High ABV"}
       />
       <FilterItem
@@ -43,7 +28,7 @@ const FilterList = (props) => {
         inputId="classicRange"
         value="Classic Range"
         onChange={handleFilters}
-        checked={checkedClassicRange}
+        checked={isClassicRangeChecked}
         label={"Classic Range"}
       />
       <FilterItem
@@ -51,7 +36,7 @@ const FilterList = (props) => {
         inputId="acidicRange"
         value="Acidic Range"
         onChange={handleFilters}
-        checked={checkedAcidic}
+        checked={isAcidicChecked}
         label={"Acidic Range"}
       />
     </div>

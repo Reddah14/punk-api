@@ -10,6 +10,11 @@ import FilterList from "../components/FilterList/FilterList";
 import CardList from "../components/CardList/CardList";
 
 const Home = () => {
+
+  const [isHighABVchecked, setIsHighABVchecked] = useState(false)
+  const [isClassicRangeChecked, setIsClassicRangeChecked] = useState(false)
+  const [isAcidicChecked, setIsAcidicChecked] = useState(false)
+
   const [beersArr, setBeersArr] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -27,7 +32,21 @@ const Home = () => {
   }, []);
 
   const handleFilters = (event) => {
-    console.log('checkbox cheked from Home!', event);
+    console.log('checkbox checked from Home!', event);
+
+    if (event.value === "High ABV") {
+      console.log('highABV is checked');
+
+      return setIsHighABVchecked(event.target.checked);    
+    } else if (event.value === "Classic Range") {
+      console.log('classic range is checked');
+
+      return setIsClassicRangeChecked(event.target.checked);       
+    } else if (event.value === "Acidic Range") {
+      console.log('Acidic Range is checked');
+
+      return setIsAcidicChecked(event.target.checked);       
+    }
   }
 
   const handleInput = (event) => {
@@ -56,7 +75,12 @@ const Home = () => {
           beerToSearch={searchTerm}
           handleInput={handleInput}
         />
-        <FilterList handleFilters={handleFilters} />
+        <FilterList
+          isHighABVchecked={isHighABVchecked}
+          isClassicRangeChecked={isClassicRangeChecked}
+          isAcidicChecked={isAcidicChecked}
+          handleFilters={handleFilters} 
+        />
       </Sidebar>
 
       <CardList beerData={filteredBeers} />
