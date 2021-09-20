@@ -2,6 +2,8 @@ import React/* , { useState }  */from "react";
 
 import "./FilterList.scss";
 
+import { Slider } from 'primereact/slider';
+
 import FilterItem from "../FilterItem/FilterItem";
 
 const FilterList = (props) => {
@@ -10,7 +12,8 @@ const FilterList = (props) => {
     isHighABVchecked,
     isClassicRangeChecked,
     isAcidicChecked,
-    handleFilters
+    handleFilters,
+    handleSlider
   } = props;
 
   return (
@@ -39,6 +42,12 @@ const FilterList = (props) => {
         checked={isAcidicChecked}
         label={"Acidic Range"}
       />
+      <div className="m-5 mt-6 text-center">
+        <label>
+          Internation Bitterness Units (IBU)
+        </label>
+        <Slider className="m-4" value="IBU" onChange={handleSlider} max="200" />
+      </div>
     </div>
   );
 };
