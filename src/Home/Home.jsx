@@ -34,19 +34,13 @@ const Home = () => {
   }, []);
 
   const handleFilters = (event) => {
-    console.log('checkbox checked from Home!', event);
-
     if (event.value === "High ABV") {
-      console.log('highABV is checked');
       setIsHighABVchecked(event.target.checked);
 
       const filteredByHighABV = beersArr.filter( beer => beer.abv > 6 );
-      console.log(filteredByHighABV);
       //setBeersFilteredByHighABV(filteredByHighABV);
       setBeersArr(filteredByHighABV);
-
     } else if (event.value === "Classic Range") {
-      console.log('classic range is checked');
       setIsClassicRangeChecked(event.target.checked);
 
       const filteredByClassicRange = beersArr.filter( beer => {
@@ -55,11 +49,8 @@ const Home = () => {
         
         return parseInt(twoDigitYearValue) < 10;
       });
-      console.log(filteredByClassicRange);
       setBeersArr(filteredByClassicRange);
-
     } else if (event.value === "Acidic Range") {
-      console.log('Acidic Range is checked');
       setIsAcidicChecked(event.target.checked);
 
       const filteredByAcidicRange = beersArr.filter( beer =>  {
@@ -69,7 +60,6 @@ const Home = () => {
         };
         return filteredBeer;
       })
-      console.log(filteredByAcidicRange);
       setBeersArr(filteredByAcidicRange);
     }
   }
