@@ -4,7 +4,7 @@ import "./Home.scss";
 
 import { Sidebar } from "primereact/sidebar";
 
-import beerData from "../data/beers-data";
+//import beerData from "../data/beers-data";
 //https://api.punkapi.com/v2/
 
 import logo from "../assets/images/logo-small.jpg";
@@ -13,8 +13,17 @@ import FilterList from "../components/FilterList/FilterList";
 import CardList from "../components/CardList/CardList";
 
 const Home = () => {
-
   const [searchTerm, setSearchTerm] = useState("");
+  const [beersArr, setBeersArr] = useState([]);
+
+  fetch('https://api.punkapi.com/v2/beers')
+    .then((response) => response.json())
+    .then((beerData) => setBeersArr(beerData))
+    .catch((err) => console.log(err));
+
+  console.log(beersArr);
+    
+
 
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
@@ -22,7 +31,7 @@ const Home = () => {
     console.log(event.target.value);
   };
 
-  const filteredBeers = beerData.filter((beer) => {
+  const filteredBeers = beersArr.filter((beer) => {
     const beerNameToLowerC = beer.name.toLowerCase();
     const searchTermToLowerC = searchTerm.toLowerCase();
 
@@ -31,8 +40,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* <LeftDrawer /> */}
-
 
       <Sidebar visible={true} showCloseIcon={false}>
         <div className="sidebar__label shadow-4 p-3">
@@ -46,7 +53,6 @@ const Home = () => {
         />
         <FilterList />
       </Sidebar>
-
 
       <CardList beerData={filteredBeers} />
     </div>
