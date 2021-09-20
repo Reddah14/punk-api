@@ -58,11 +58,19 @@ const Home = () => {
       console.log(filteredByClassicRange);
       setBeersArr(filteredByClassicRange);
 
-      return setIsClassicRangeChecked(event.target.checked);       
     } else if (event.value === "Acidic Range") {
       console.log('Acidic Range is checked');
+      setIsAcidicChecked(event.target.checked);
 
-      return setIsAcidicChecked(event.target.checked);       
+      const filteredByAcidicRange = beersArr.filter( beer =>  {
+        let filteredBeer = null;
+        if (beer.ph != null && beer.ph < 4) {
+          filteredBeer = beer;          
+        };
+        return filteredBeer;
+      })
+      console.log(filteredByAcidicRange);
+      setBeersArr(filteredByAcidicRange);
     }
   }
 
