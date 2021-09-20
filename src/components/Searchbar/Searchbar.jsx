@@ -14,6 +14,8 @@ const Searchbar = (props) => {
       <span className=" p-input-icon-left p-float-label">
         <i className="pi pi-search" />
         <InputText
+          type="text"
+          name={label}
           id="searchBeer"
           value={beerToSearch}
           onChange={handleInput}
