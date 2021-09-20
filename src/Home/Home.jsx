@@ -26,6 +26,10 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleFilters = (event) => {
+    console.log('checkbox cheked from Home!', event);
+  }
+
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
@@ -52,7 +56,7 @@ const Home = () => {
           beerToSearch={searchTerm}
           handleInput={handleInput}
         />
-        <FilterList />
+        <FilterList handleFilters={handleFilters} />
       </Sidebar>
 
       <CardList beerData={filteredBeers} />

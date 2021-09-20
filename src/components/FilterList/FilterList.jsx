@@ -4,13 +4,16 @@ import "./FilterList.scss";
 
 import FilterItem from "../FilterItem/FilterItem";
 
-const FilterList = () => {
+const FilterList = (props) => {
+
+  const { handleFilters } = props;
 
   const [checkedHighABV, setCheckedHighABV] = useState(false);
   const [checkedClassicRange, setCheckedClassicRange] = useState(false);
   const [checkedAcidic, setCheckedAcidic] = useState(false);
 
-  const handleCbHighABV = () => {
+  const handleCbHighABV = (event) => {
+    console.log(event);
     setCheckedHighABV(!checkedHighABV);
     console.log("cb high abv ticked");
   };
@@ -31,7 +34,7 @@ const FilterList = () => {
         tooltip="ABV greater than 6.0%"
         inputId={"highABV"}
         value={"High ABV"}
-        onChange={handleCbHighABV}
+        onChange={handleFilters}
         checked={checkedHighABV}
         label={"High ABV"}
       />
@@ -39,7 +42,7 @@ const FilterList = () => {
         tooltip="Brewed before 2010"
         inputId="classicRange"
         value="Classic Range"
-        onChange={handleCbClassicRange}
+        onChange={handleFilters}
         checked={checkedClassicRange}
         label={"Classic Range"}
       />
@@ -47,7 +50,7 @@ const FilterList = () => {
         tooltip="pH lower than 4"
         inputId="acidicRange"
         value="Acidic Range"
-        onChange={handleCbAcidicRange}
+        onChange={handleFilters}
         checked={checkedAcidic}
         label={"Acidic Range"}
       />
