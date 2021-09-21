@@ -4,10 +4,10 @@ import "./Home.scss";
 
 import { Sidebar } from "primereact/sidebar";
 
-import logo from "../assets/images/logo-small.jpg";
 import Searchbar from "../components/Searchbar/Searchbar";
 import FilterList from "../components/FilterList/FilterList";
 import CardList from "../components/CardList/CardList";
+import SidebarLabel from "../components/SidebarLabel/SidebarLabel";
 
 const Home = () => {
 
@@ -80,15 +80,13 @@ const Home = () => {
 
     return beerNameToLowerC.includes(searchTermToLowerC);
   })
-console.log(filteredBeers);
+  console.log(filteredBeers);
+
   return (
     <div className="home">
 
       <Sidebar visible={true} showCloseIcon={false}>
-        <div className="sidebar__label shadow-4 p-3">
-          <img src={logo} alt="logo" className="sidebar__label--logo mr-3" />
-          <span className="sidebar__label--title">Brewdog Punk-API</span>
-        </div>
+        <SidebarLabel/>
         <Searchbar
           label="Search Your Beer"
           beerToSearch={searchTerm}
