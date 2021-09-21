@@ -14,11 +14,16 @@ const Home = () => {
   const [isHighABVchecked, setIsHighABVchecked] = useState(false)
   const [isClassicRangeChecked, setIsClassicRangeChecked] = useState(false)
   const [isAcidicChecked, setIsAcidicChecked] = useState(false)
+  const [valueIbu, setValueIbu] = useState(0);
 
   const [beersArr, setBeersArr] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   //const [beersFilteredByHighABV, setBeersFilteredByHighABV] = useState([]);
+
+  const handleSlider = (e) => {
+    setValueIbu(e.value);
+  }
 
   useEffect(() => {
     fetch(
@@ -67,7 +72,6 @@ const Home = () => {
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
-    console.log(event.target.value);
   };
 
   const filteredBeers = beersArr.filter((beer) => {
@@ -76,7 +80,7 @@ const Home = () => {
 
     return beerNameToLowerC.includes(searchTermToLowerC);
   })
-
+console.log(filteredBeers);
   return (
     <div className="home">
 
@@ -94,7 +98,9 @@ const Home = () => {
           isHighABVchecked={isHighABVchecked}
           isClassicRangeChecked={isClassicRangeChecked}
           isAcidicChecked={isAcidicChecked}
-          handleFilters={handleFilters} 
+          handleFilters={handleFilters}
+          handleSlider={handleSlider}
+          valueIbu={valueIbu}
         />
       </Sidebar>
 

@@ -1,4 +1,4 @@
-import React/* , { useState }  */from "react";
+import React from "react";
 
 import "./FilterList.scss";
 
@@ -13,7 +13,8 @@ const FilterList = (props) => {
     isClassicRangeChecked,
     isAcidicChecked,
     handleFilters,
-    handleSlider
+    handleSlider,
+    valueIbu
   } = props;
 
   return (
@@ -46,7 +47,7 @@ const FilterList = (props) => {
         <label>
           Internation Bitterness Units (IBU)
         </label>
-        <Slider className="m-4" value="IBU" onChange={handleSlider} max="200" />
+        <Slider className="m-4" value={valueIbu} onChange={handleSlider} max="200" />
       </div>
     </div>
   );
