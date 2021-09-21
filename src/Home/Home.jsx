@@ -23,6 +23,19 @@ const Home = () => {
 
   const handleSlider = (e) => {
     setValueIbu(e.value);
+
+    fetch(
+      `https://api.punkapi.com/v2/beers?ibu_lt=${valueIbu}`
+    )
+      .then((response) => { 
+        return response.json();
+      })
+      .then((beerData) => {
+        console.log(beerData);
+        setBeersArr(beerData)
+      })
+      .catch((err) => console.log(err));
+
   }
 
   useEffect(() => {
