@@ -48,6 +48,7 @@ const FilterList = (props) => {
           Internation Bitterness Units (IBU)
         </label>
         <Slider className="m-4" value={valueIbu} onChange={handleSlider} max="200" />
+        {valueIbu}
       </div>
     </div>
   );
